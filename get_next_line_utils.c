@@ -6,7 +6,7 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:31:33 by doley             #+#    #+#             */
-/*   Updated: 2024/10/17 14:14:51 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/17 14:23:09 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,26 @@ char	*ft_strdup(const char *s1)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	s_len;
-	size_t	substr_len;
-	char	*substr;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	if (!s)
+	str = (char *)malloc(sizeof(*s) * (len + 1));
+	if (str == 0)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-		return (ft_strdup(""));
-	if (s_len - start < len)
-		substr_len = s_len - start;
-	else
-		substr_len = len;
-	substr = ft_calloc(substr_len + 1, sizeof(char));
-	if (!substr)
-		return (NULL);
-	ft_strlcpy(substr, s + start, substr_len + 1);
-	return (substr);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
