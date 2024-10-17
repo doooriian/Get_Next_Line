@@ -6,7 +6,7 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:30:03 by doley             #+#    #+#             */
-/*   Updated: 2024/10/17 14:23:53 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/17 14:25:50 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-
 
 /* MAIN */
 char	*ft_read(int fd, char *buffer, char *stock);

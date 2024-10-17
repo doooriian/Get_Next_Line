@@ -6,7 +6,7 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:29:37 by doley             #+#    #+#             */
-/*   Updated: 2024/10/17 14:21:05 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/17 14:48:13 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@ char	*ft_read(int fd, char *buffer, char *stock)
 	int		bytes_read;
 	char	*tmp;
 
-	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	bytes_read = 1;
+	while (bytes_read > 0)
 	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read < 0)
+			return (NULL);
+		if (bytes_read == 0)
+			break ;
 		buffer[bytes_read] = '\0';
 		if (!stock)
 			stock = ft_strdup("");
@@ -28,8 +34,6 @@ char	*ft_read(int fd, char *buffer, char *stock)
 		if (ft_strchr(stock, '\n'))
 			break ;
 	}
-	if (bytes_read == -1)
-		return (NULL);
 	return (stock);
 }
 
@@ -39,12 +43,13 @@ char	*ft_trim(char *line)
 	char	*stock;
 
 	i = 0;
+	stock = NULL;
 	while (line[i] != '\n' && line[i] != '\0')
 		i++;
 	if (line[i] == '\0')
 		return (NULL);
 	if (line[i] == '\n' && line[i + 1] != '\0')
-	{	
+	{
 		stock = ft_substr(line, i + 1, ft_strlen(line) - 1);
 		if (!stock)
 			return (NULL);
@@ -59,15 +64,15 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*line;
 
-	if (read(fd, NULL, 0) <= 0 || BUFFER_SIZE <= 0)
+	if (read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	line = ft_read(fd,buffer, stock);
+	line = ft_read(fd, buffer, stock);
+	free(buffer);
 	if (!line)
 		return (NULL);
-	free(buffer);
 	stock = ft_trim(line);
 	return (line);
 }
