@@ -6,7 +6,7 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:29:37 by doley             #+#    #+#             */
-/*   Updated: 2024/10/17 15:34:41 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/18 15:54:11 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*line;
 
-	if (read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		if (stock)
 			free(stock);
