@@ -6,7 +6,7 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:07:40 by doley             #+#    #+#             */
-/*   Updated: 2024/10/19 17:24:59 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/19 17:52:58 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 typedef struct      s_fd_list
 {
-    int             fd;
-    char            *stock;
-    struct s_fd_list *next;
+    int					fd;
+    char				*stock;
+    struct s_fd_list	*next;
 }                   t_fd_list;
 
 /* UTILS */
