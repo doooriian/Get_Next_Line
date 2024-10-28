@@ -6,13 +6,13 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:29:37 by doley             #+#    #+#             */
-/*   Updated: 2024/10/20 16:42:37 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/28 13:27:06 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read(int fd, char *buffer, char **stock)
+static char	*ft_read(int fd, char *buffer, char **stock)
 {
 	int		bytes_read;
 	char	*tmp;
@@ -41,7 +41,7 @@ char	*ft_read(int fd, char *buffer, char **stock)
 	return (*stock);
 }
 
-char	*ft_trim(char *line)
+static char	*ft_trim(char *line)
 {
 	size_t	i;
 	char	*stock;

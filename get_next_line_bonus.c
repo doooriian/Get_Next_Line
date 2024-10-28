@@ -6,13 +6,13 @@
 /*   By: doley <doley@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:06:31 by doley             #+#    #+#             */
-/*   Updated: 2024/10/20 18:15:07 by doley            ###   ########.fr       */
+/*   Updated: 2024/10/28 13:26:19 by doley            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-void	free_fd_node(t_fd_list **fd_list, int fd)
+static void	free_fd_node(t_fd_list **fd_list, int fd)
 {
 	t_fd_list	*prev;
 	t_fd_list	*current;
@@ -37,7 +37,7 @@ void	free_fd_node(t_fd_list **fd_list, int fd)
 	}
 }
 
-t_fd_list	*get_fd_node(t_fd_list **fd_list, int fd)
+static t_fd_list	*get_fd_node(t_fd_list **fd_list, int fd)
 {
 	t_fd_list	*current;
 
@@ -58,7 +58,7 @@ t_fd_list	*get_fd_node(t_fd_list **fd_list, int fd)
 	return (current);
 }
 
-char	*ft_read(int fd, char *buffer, char **stock)
+static char	*ft_read(int fd, char *buffer, char **stock)
 {
 	int		bytes_read;
 	char	*tmp;
@@ -87,7 +87,7 @@ char	*ft_read(int fd, char *buffer, char **stock)
 	return (*stock);
 }
 
-char	*ft_trim(char *line)
+static char	*ft_trim(char *line)
 {
 	size_t	i;
 	char	*stock;
