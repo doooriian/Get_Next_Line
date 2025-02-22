@@ -1,111 +1,94 @@
 <br />
 <p align="center">
-  <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png">
+  <a href="https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/images/logo.png">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" alt="42 Logo" width="250" height="250">
   </a>
 
-  <h1 align="center">Push_swap</h1>
+  <h1 align="center">Get_next_line</h1>
 
   <p align="center">
-    A 42 School project to sort a stack of integers using a minimal number of operations
-    <br /><br />
-    <img src="https://github.com/doooriian/42-Badges/blob/main/badges/push_swapm.png" alt="Push_swap Badge" width="150">
+    A custom project from 42 School for efficient file reading
+    <br />
+    <br />
+    <img src="https://github.com/doooriian/42-Badges/blob/main/badges/get_next_linem.png" alt="Get_next_line Badge" width="150">
   </p>
 </p>
 
 <p align="center">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/doooriian/Push_swap?color=1A237E" />
-  <img alt="Code language count" src="https://img.shields.io/github/languages/count/doooriian/Push_swap?color=00BCD4" />
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/doooriian/Push_swap?color=7B1FA2" />
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/doooriian/Push_swap?color=D32F2F" />
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/doooriian/Get_next_line?color=1A237E" />
+  <img alt="Code language count" src="https://img.shields.io/github/languages/count/doooriian/Get_next_line?color=00BCD4" />
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/doooriian/Get_next_line?color=7B1FA2" />
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/doooriian/Get_next_line?color=D32F2F" />
 </p>
+
 ---
 
 ## ✨ Overview
 
-**Push_swap** is an individual project at 42 School that challenges you to sort a stack of integers with the fewest possible operations. This project focuses on mastering data structures, honing algorithmic skills, and optimizing the limited set of allowed operations.
+**Get_next_line** is an individual project at 42 School that implements a function to read a file, returning one line at a time from a file descriptor. This project challenges your ability to manage memory, handle buffers, and work with file descriptors efficiently. The bonus part extends the functionality by allowing multiple file descriptors to be read concurrently.
 
-For this project, I tackled the bonus requirements and slightly improved the Turkish algorithm initially described in this resource:  
-- [Medium Article – Push_swap](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
-
-**Bonus Optimization:**  
-I refined the Turkish algorithm by slightly modifying its logic. In particular, when two numbers are either both above or both below the median, the algorithm performs a grouped rotation (rotating both simultaneously in the same direction) to reduce the total number of operations required.
+The goal? Deliver a robust and efficient function that behaves similarly to the standard I/O functions while adhering to the 42 School coding standards.
 
 ---
 
 ## 📑 Key Features
 
-- **Optimized Turkish Algorithm:**  
-  Implementation and enhancement of the Turkish algorithm with bonus optimizations that group rotations when both numbers are on the same side of the median.
+### Core Functionality
+- **Line-by-Line Reading**  
+  Reads one line at a time from a given file descriptor.
   
-- **Full Bonus Implementation:**  
-  All bonus features have been implemented to meet the project requirements.
-  
-- **Visualization & Testing:**  
-  - Integrated with the [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer) for a graphical display of the sorting process.
-  - Tested against the [push_swap-testeur-max](https://gitlab.com/nda-cunh/push_swap-testeur-max) to ensure compliance with the expected standards.
+- **Buffer Management**  
+  Efficiently handles input buffering to optimize read operations.
 
-**Resources Used:**  
-- Turkish algorithm explanation: [Medium – Push_swap](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)  
-- Interactive visualizer: [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer)  
-- Comprehensive tester: [push_swap-testeur-max](https://gitlab.com/nda-cunh/push_swap-testeur-max)
+- **Memory Handling**  
+  Dynamically allocates memory to store lines and avoids memory leaks.
+
+### Bonus Features
+- **Multi-file Descriptor Support**  
+  Capable of handling multiple file descriptors concurrently, ensuring that each file maintains its own reading state.
+  
+- **Linked List Implementation**  
+  Bonus implementation leverages linked lists to dynamically manage multiple buffers and file descriptors.
+
+### Core Files
+- [`get_next_line.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line.c) — Implements the core logic for reading and returning a single line.
+- [`get_next_line_utils.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line_utils.c) — Contains helper functions for memory management and string manipulations.
+- [`get_next_line_bonus.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line_bonus.c) — Bonus file handling multiple file descriptors using linked lists.
 
 ---
 
 ## 🛠️ Technologies Used
-
-- **[C](https://devdocs.io/c/)** — Primary programming language.
-- **[Makefile](https://www.gnu.org/software/make/manual/make.html)** — For build automation.
-- **[Git](https://git-scm.com/)** — Version control.
+- **[C](https://devdocs.io/c/)** — Core programming language.
+- **[Makefile](https://www.gnu.org/software/make/manual/make.html)** — Build automation tool.
 
 ---
 
-## 🚀 How to Compile and Run
+## 🚀 How to Build and Run
 
 Clone the repository and use the following commands in your terminal:
 
 ```bash
-# Compile the project
+# Compile the project and create the library/executable
 make all
 
 # Remove object files
 make clean
 
-# Remove object files and executables
+# Remove object files and the library/executable
 make fclean
 
-# Recompile from scratch after cleanup
+# Clean everything and recompile
 make re
 
 ```
-
-> **Note:** Ensure that your 42 environment is correctly set up before compiling.
-
-## 🎨 Visual Example
-
-**Tip for inserting a screenshot:**  
-- Use your preferred screenshot tool to capture the visualizer output (e.g., from push_swap_visualizer).  
-- Host the image on an online platform like GitHub, Imgur, etc.  
-- Replace `YOUR_IMAGE_URL` with the direct URL to your image.
-
-**Example:**
-
-![Visualization Example](YOUR_IMAGE_URL)
-
 ## 🧪 Testing
 
-This project was rigorously tested using:
-- The **push_swap_visualizer** to observe real-time operations.
-- The **push_swap-testeur-max** to validate robustness and efficiency, especially for the bonus optimizations.
+This project was tested using custom test cases to ensure robust performance and efficient memory management. The bonus functionality was extensively validated to handle multiple file descriptors simultaneously, using linked lists to manage dynamic buffers.
 
 ## ✅ Results
 
-Below are some performance and quality indicators achieved:
-
-<p align="center">
-  <img src="https://github.com/doooriian/42-Badges/blob/main/badges/100Grade.png" alt="Push_swap Grade">
-</p>
+Here’s my score for the Get_next_line project:
 
 ## 📬 Contact
 
-Feel free to reach out or contribute to this project via [GitHub](https://github.com/doooriian/Push_swap)!
+Feel free to reach out or contribute to this project via [GitHub](https://github.com/doooriian)!
