@@ -68,17 +68,37 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
 Clone the repository and use the following commands in your terminal:
 
 ```bash
-# Compile the project and create the library/executable
-make all
+## Build and Run
 
-# Remove object files
-make clean
+Since the project contains only a function, you can test it by creating a simple `main.c` file that calls `get_next_line`
+For example, here’s a minimal test program:
 
-# Remove object files and the library/executable
-make fclean
+```c
+#include <fcntl.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "get_next_line.h"
 
-# Clean everything and recompile
-make re
+int main(void)
+{
+    int fd = open("file.txt", O_RDONLY);
+    if (fd < 0)
+    {
+        perror("Error opening file");
+        return (1);
+    }
+
+    char *line;
+    while ((line = get_next_line(fd)))
+    {
+        printf("%s", line);
+        free(line);
+    }
+
+    close(fd);
+    return (0);
+}
+
 
 ```
 ## 🧪 Testing
