@@ -120,6 +120,10 @@ This project was tested using custom test cases to ensure robust performance and
 
 Here’s my score for the Get_next_line project:
 
+<p align="center">
+  <img src="https://github.com/doooriian/42-Badges/blob/main/badges/LibftGrade.png" alt="Get_next_line Grade">
+</p>
+
 ## 📬 Contact
 
 Feel free to reach out or contribute to this project via [GitHub](https://github.com/doooriian)!
