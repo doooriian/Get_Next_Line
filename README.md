@@ -65,8 +65,19 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
 
 ## 🚀 How to Build and Run
 
-Clone the repository and use the following commands in your terminal:
+1. Clone repository
+    ```bash
+    git clone git@github.com:doooriian/Get_next_line.git
+    ```
 
+2. To use the library in your code, `#include` the following header
+    ```c
+    #include "get_next_line.h"
+
+</br>
+
+
+3. Follow these instructions
 ```bash
 ## Build and Run
 
