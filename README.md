@@ -1,24 +1,14 @@
-<p align="center">
-  <a href="https://42.fr/">
-    <img src="https://github.com/doooriian/42-Badges/blob/main/42_Logo.png" alt="42 Logo" width="100" height="100">
-  </a>
+<div align="center">
 
-  <h1 align="center">Get_Next_Line</h1>
+<a href="https://42.fr/"><img src="https://raw.githubusercontent.com/doooriian/42-Badges/main/badges/get_next_linem.png" width="125" alt="Get_Next_Line 42 project badge" /></a>
 
-  <p align="center">
-    A custom project from 42 School for efficient file reading
-    <br />
-    <br />
-    <img src="https://github.com/doooriian/42-Badges/blob/main/badges/get_next_linem.png" alt="Get_next_line Badge" width="125">
-  </p>
-<p align="center"><img src="https://img.shields.io/badge/42%20School-Project-0F766E?style=flat-square" alt="42 School project" /></p>
+# Get_Next_Line
 
-<p align="center">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/doooriian/Get_next_line?color=1A237E" />
-  <img alt="Code language count" src="https://img.shields.io/github/languages/count/doooriian/Get_next_line?color=00BCD4" />
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/doooriian/Get_next_line?color=7B1FA2" />
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/doooriian/Get_next_line?color=D32F2F" />
-</p>
+**Buffered file reading in C**
+
+<img src="https://img.shields.io/badge/42%20School-Project-0F766E?style=flat-square" alt="42 School project" />
+
+</div>
 
 ---
 
@@ -50,7 +40,7 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
   Bonus implementation leverages linked lists to dynamically manage multiple buffers and file descriptors.
 
 ### Core Files
-- [`get_next_line.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line.c) — Implements the core logic for reading and returning a single line.
+- [`get_next_line.c`](https://github.com/doooriian/Get_Next_Line/blob/main/get_next_line.c) — Implements the core logic for reading and returning a single line.
 - [`get_next_line_utils.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line_utils.c) — Contains helper functions for memory management and string manipulations.
 - [`get_next_line_bonus.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line_bonus.c) — Bonus file handling multiple file descriptors using linked lists.
 
@@ -113,13 +103,6 @@ int main(void)
 
 This project was tested using custom test cases to ensure robust performance and efficient memory management. The bonus functionality was extensively validated to handle multiple file descriptors simultaneously, using linked lists to manage dynamic buffers.
 
-## 🏅 Results
-
-Here’s my score for the Get_next_line project:
-
-<p align="center">
-  <img src="https://github.com/doooriian/42-Badges/blob/main/badges/LibftGrade.png" alt="Get_next_line Grade">
-</p>
 
 ## 📬 Contact
 
