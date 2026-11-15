@@ -2,8 +2,6 @@
 
 > **42 School project** · C · File descriptors and buffered I/O
 
-A line-oriented reader for file descriptors, designed to return one line per call while keeping unread data across calls.
-
 ## Overview
 
 A line-oriented reader for file descriptors, designed to return one line per call while keeping unread data across calls.
