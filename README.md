@@ -1,29 +1,18 @@
-<br />
-<p align="center">
-  <a href="https://42.fr/">
-    <img src="https://github.com/doooriian/42-Badges/blob/main/42_Logo.png" alt="42 Logo" width="250" height="250">
-  </a>
+<div align="center">
 
-  <h1 align="center">Get_next_line</h1>
+<a href="https://42.fr/"><img src="https://raw.githubusercontent.com/doooriian/42-Badges/main/badges/get_next_linem.png" width="125" alt="Get_Next_Line 42 project badge" /></a>
 
-  <p align="center">
-    A custom project from 42 School for efficient file reading
-    <br />
-    <br />
-    <img src="https://github.com/doooriian/42-Badges/blob/main/badges/get_next_linem.png" alt="Get_next_line Badge" width="150">
-  </p>
-</p>
+# Get_Next_Line
 
-<p align="center">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/doooriian/Get_next_line?color=1A237E" />
-  <img alt="Code language count" src="https://img.shields.io/github/languages/count/doooriian/Get_next_line?color=00BCD4" />
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/doooriian/Get_next_line?color=7B1FA2" />
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/doooriian/Get_next_line?color=D32F2F" />
-</p>
+**Buffered file reading in C**
+
+<img src="https://img.shields.io/badge/42%20School-Project-0F766E?style=flat-square" alt="42 School project" />
+
+</div>
 
 ---
 
-## ✨ Overview
+## 🔎 Overview
 
 **Get_next_line** is an individual project at 42 School that implements a function to read a file, returning one line at a time from a file descriptor. This project challenges your ability to manage memory, handle buffers, and work with file descriptors efficiently. The bonus part extends the functionality by allowing multiple file descriptors to be read concurrently.
 
@@ -31,7 +20,7 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
 
 ---
 
-## 📑 Key Features
+## ✨ Key Features
 
 ### Core Functionality
 - **Line-by-Line Reading**  
@@ -51,7 +40,7 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
   Bonus implementation leverages linked lists to dynamically manage multiple buffers and file descriptors.
 
 ### Core Files
-- [`get_next_line.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line.c) — Implements the core logic for reading and returning a single line.
+- [`get_next_line.c`](https://github.com/doooriian/Get_Next_Line/blob/main/get_next_line.c) — Implements the core logic for reading and returning a single line.
 - [`get_next_line_utils.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line_utils.c) — Contains helper functions for memory management and string manipulations.
 - [`get_next_line_bonus.c`](https://github.com/doooriian/Get_next_line/blob/main/get_next_line_bonus.c) — Bonus file handling multiple file descriptors using linked lists.
 
@@ -65,64 +54,54 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
 
 ## 🚀 How to Build and Run
 
-1. Clone repository
-    ```bash
-    git clone git@github.com:doooriian/Get_next_line.git
-    ```
+Clone the repository:
 
-2. To use the library in your code, `#include` the following header
-    ```c
-    #include "get_next_line.h"
-
-</br>
-
-
-3. Follow these instructions
 ```bash
-## Build and Run
+git clone https://github.com/doooriian/Get_Next_Line.git
+cd Get_Next_Line
+```
 
-Since the project contains only a function, you can test it by creating a simple `main.c` file that calls `get_next_line`
-For example, here’s a minimal test program:
+This project provides a function, not a standalone executable or a Makefile. Compile the mandatory source files with your test program:
+
+```bash
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \
+    main.c get_next_line.c get_next_line_utils.c -o gnl_test
+```
+
+Here is an example `main.c` (create a text file named `file.txt` in the same directory):
 
 ```c
 #include <fcntl.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "get_next_line.h"
 
 int main(void)
 {
     int fd = open("file.txt", O_RDONLY);
-    if (fd < 0)
-    {
-        perror("Error opening file");
-        return (1);
-    }
-
     char *line;
-    while ((line = get_next_line(fd)))
+
+    if (fd < 0)
+        return (1);
+    while ((line = get_next_line(fd)) != NULL)
     {
         printf("%s", line);
         free(line);
     }
-
     close(fd);
     return (0);
 }
-
-
 ```
+
+For the bonus version, compile `get_next_line_bonus.c` and `get_next_line_utils_bonus.c` and include `get_next_line_bonus.h`. The bonus implementation supports reading from multiple file descriptors.
+
+---
+
 ## 🧪 Testing
 
 This project was tested using custom test cases to ensure robust performance and efficient memory management. The bonus functionality was extensively validated to handle multiple file descriptors simultaneously, using linked lists to manage dynamic buffers.
 
-## ✅ Results
-
-Here’s my score for the Get_next_line project:
-
-<p align="center">
-  <img src="https://github.com/doooriian/42-Badges/blob/main/badges/LibftGrade.png" alt="Get_next_line Grade">
-</p>
 
 ## 📬 Contact
 
