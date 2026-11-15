@@ -54,51 +54,50 @@ The goal? Deliver a robust and efficient function that behaves similarly to the 
 
 ## 🚀 How to Build and Run
 
-1. Clone repository
-    ```bash
-    git clone git@github.com:doooriian/Get_next_line.git
-    ```
+Clone the repository:
 
-2. To use the library in your code, `#include` the following header
-    ```c
-    #include "get_next_line.h"
-
-
-3. Follow these instructions
 ```bash
-### Build and Run
+git clone https://github.com/doooriian/Get_Next_Line.git
+cd Get_Next_Line
+```
 
-Since the project contains only a function, you can test it by creating a simple `main.c` file that calls `get_next_line`
-For example, here’s a minimal test program:
+This project provides a function, not a standalone executable or a Makefile. Compile the mandatory source files with your test program:
+
+```bash
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \
+    main.c get_next_line.c get_next_line_utils.c -o gnl_test
+```
+
+Here is an example `main.c` (create a text file named `file.txt` in the same directory):
 
 ```c
 #include <fcntl.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "get_next_line.h"
 
 int main(void)
 {
     int fd = open("file.txt", O_RDONLY);
-    if (fd < 0)
-    {
-        perror("Error opening file");
-        return (1);
-    }
-
     char *line;
-    while ((line = get_next_line(fd)))
+
+    if (fd < 0)
+        return (1);
+    while ((line = get_next_line(fd)) != NULL)
     {
         printf("%s", line);
         free(line);
     }
-
     close(fd);
     return (0);
 }
-
-
 ```
+
+For the bonus version, compile `get_next_line_bonus.c` and `get_next_line_utils_bonus.c` and include `get_next_line_bonus.h`. The bonus implementation supports reading from multiple file descriptors.
+
+---
+
 ## 🧪 Testing
 
 This project was tested using custom test cases to ensure robust performance and efficient memory management. The bonus functionality was extensively validated to handle multiple file descriptors simultaneously, using linked lists to manage dynamic buffers.
